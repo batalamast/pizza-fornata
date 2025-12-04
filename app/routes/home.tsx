@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import PizzaHero from "~/components/PizzaSelector";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -14,7 +15,9 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
     return (
         <>
-            <div className="text-red-500">Hello, World!</div>
+            <PizzaHero />
+
+            <div className="mt-5">About</div>
         </>
     );
 }
