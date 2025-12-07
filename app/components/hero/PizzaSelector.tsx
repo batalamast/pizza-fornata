@@ -15,25 +15,25 @@ const pizzaOptions: PizzaOption[] = [
     {
         id: "special",
         label: "Special",
-        image: "/public/images/hero/pizza-hero.png",
+        image: "/images/hero/pizza-hero.png",
         angle: 170
     },
     {
         id: "margherita",
         label: "Margherita",
-        image: "/public/images/hero/pizza-hero.png",
+        image: "/images/hero/pizza-hero.png",
         angle: 130
     },
     {
         id: "village",
         label: "Village",
-        image: "/public/images/hero/pizza-hero.png",
+        image: "/images/hero/pizza-hero.png",
         angle: 90
     },
     {
         id: "fornata",
         label: "Fornata",
-        image: "/public/images/hero/pizza-hero.png",
+        image: "/images/hero/pizza-hero.png",
         angle: 50
     },
     {
@@ -45,7 +45,6 @@ const pizzaOptions: PizzaOption[] = [
 ];
 
 const PizzaHero: React.FC = () => {
-    const [size, setSize] = useState<30 | 38>(30);
     const [selected, setSelected] = useState<PizzaOption>(pizzaOptions[0]);
     const [animatePizza, setAnimatePizza] = useState(false);
 
@@ -53,7 +52,7 @@ const PizzaHero: React.FC = () => {
         setAnimatePizza(true);
         const t = setTimeout(() => setAnimatePizza(false), 350);
         return () => clearTimeout(t);
-    }, [selected, size]);
+    }, [selected]);
 
     const dotClasses = (active: boolean) =>
         `rounded-full transition-transform ${
@@ -66,7 +65,7 @@ const PizzaHero: React.FC = () => {
         <section className="relative min-h-[90vh] overflow-hidden text-black">
             <div
                 className="absolute inset-0 bg-cover bg-center opacity-35"
-                style={{ backgroundImage: "url('public/images/hero/fournos-hero.jpg')" }}
+                style={{ backgroundImage: "url('/images/hero/fournos-hero.jpg')" }}
             />
 
             <div className="pointer-events-none absolute bottom-[-420px] left-1/2 z-10 h-[840px] w-[840px] -translate-x-1/2">
