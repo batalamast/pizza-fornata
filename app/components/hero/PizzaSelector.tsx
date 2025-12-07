@@ -1,5 +1,6 @@
 // PizzaHero.tsx
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "~/components/ui/Button";
 
 type PizzaId = "special" | "margherita" | "village" | "fornata" | "carbonara";
@@ -46,19 +47,22 @@ const pizzaOptions: PizzaOption[] = [
 
 const PizzaHero: React.FC = () => {
     const [selected, setSelected] = useState<PizzaOption>(pizzaOptions[0]);
-    const [animatePizza, setAnimatePizza] = useState(false);
+    const [rotation, setRotation] = useState(0);
+    const hasMounted = useRef(false);
 
+    // κάθε φορά που αλλάζει πίτσα → αυξάνουμε λίγο το rotation
     useEffect(() => {
-        setAnimatePizza(true);
-        const t = setTimeout(() => setAnimatePizza(false), 350);
-        return () => clearTimeout(t);
-    }, [selected]);
+        if (hasMounted.current) {
+            // πόσο να γυρνάει κάθε φορά (παίξε με αυτό)
+            setRotation(prev => prev + 30);
+        } else {
+            hasMounted.current = true; // στο πρώτο render μόνο, ΔΕΝ κάνουμε rotate
+        }
+    }, [selected.id]);
 
     const dotClasses = (active: boolean) =>
         `rounded-full transition-transform ${
-            active
-                ? "h-3 w-3 bg-[#f4a521] outline outline-[3px] outline-white scale-110"
-                : "h-2.5 w-2.5 bg-white"
+            active ? "h-3 w-3 bg-[#f4a521] outline outline-[3px] outline-white scale-110" : "h-2.5 w-2.5 bg-white"
         }`;
 
     return (
@@ -81,40 +85,22 @@ const PizzaHero: React.FC = () => {
                     />
                 ))}
 
-                {/*<div*/}
-                {/*    className={`absolute inset-6 flex items-center justify-center transition-transform duration-300 ease-out ${animatePizza && "rotate-[30deg]"}`}*/}
-                {/*>*/}
-                {/*    <div className="relative h-full w-full overflow-hidden rounded-full">*/}
-                {/*        <img src={selected.image} alt={selected.label} className="h-full w-full object-cover" />*/}
-
-                {/*        <Button className="pointer-events-auto btn-primary text-xl font-semibold absolute left-1/2 top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg">*/}
-                {/*            Δες τον κατάλογό μας*/}
-                {/*        </Button>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
                 <div className="absolute inset-6 flex items-center justify-center">
                     <div className="relative h-full w-full overflow-hidden rounded-full">
-                        {/* ΕΔΩ κάνουμε rotate μόνο την πίτσα */}
-                        <div
-                            className={`h-full w-full transition-transform duration-300 ease-out ${
-                                animatePizza ? "rotate-[30deg] " : ""
-                            }`}
+                        <motion.div
+                            className="h-full w-full"
+                            initial={{ opacity: 0, y: 60, rotate: 0 }}
+                            animate={{ opacity: 1, y: 0, rotate: rotation }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <img
-                                src={selected.image}
-                                alt={selected.label}
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
+                            <img src={selected.image} alt={selected.label} className="h-full w-full object-cover" />
+                        </motion.div>
 
-                        {/* Το κουμπί μένει “ήσυχο”, δεν επηρεάζεται από το rotate */}
                         <Button className="pointer-events-auto btn-primary text-xl font-semibold absolute left-1/2 top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg">
                             Δες τον κατάλογό μας
                         </Button>
                     </div>
                 </div>
-
             </div>
         </section>
     );
