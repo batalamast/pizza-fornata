@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
-import PizzaHero from "~/components/PizzaSelector";
+import PizzaHero from "~/components/hero/PizzaSelector";
+import { Navbar } from "~/components/header/NavBar";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -12,12 +13,12 @@ export function meta({}: Route.MetaArgs) {
     ];
 }
 
+// TODO: Fav icon
 export default function Home() {
     return (
         <>
+            <Navbar />
             <PizzaHero />
-
-            <div className="mt-5">About</div>
         </>
     );
 }
