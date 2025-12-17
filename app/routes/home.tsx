@@ -1,6 +1,9 @@
 import type { Route } from "./+types/home";
-import PizzaHero from "~/components/hero/PizzaSelector";
+import PizzaHero from "~/components/hero/PizzaHeroSection";
 import { Navbar } from "~/components/header/NavBar";
+import StatisticsSection from "~/components/statistics/StatisticsSection";
+import MenuSection from "~/components/menu/MenuSection";
+import DeliverySection from "~/components/delivery/DeliverySection";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -19,6 +22,10 @@ export default function Home() {
         <>
             <Navbar />
             <PizzaHero />
+            <StatisticsSection />
+            {/*<AboutUsSection />*/}
+            <MenuSection />
+            <DeliverySection />
         </>
     );
 }

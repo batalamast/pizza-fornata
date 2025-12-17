@@ -40,7 +40,7 @@ const pizzaOptions: PizzaOption[] = [
     {
         id: "carbonara",
         label: "Carbonara",
-        image: "/public/images/hero/pizza-hero.png",
+        image: "/images/hero/pizza-hero.png",
         angle: 10
     }
 ];

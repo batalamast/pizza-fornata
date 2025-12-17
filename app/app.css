@@ -5,6 +5,15 @@
 
     --color-primary-500: #F8A442;
     --color-primary-600: #db7a2c;
+    --color-primary-700: #CE7308;
+    --color-success-600: #22C55E;
+    --color-blue-900: #111827;
+    --color-gray-500: #6B7280;
+    --color-gray-100: #F3F4F6
+}
+
+html, body {
+    color: var(--color-blue-900);
 }
 
 @font-face {
