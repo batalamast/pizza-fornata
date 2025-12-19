@@ -3,10 +3,13 @@
 @theme {
     --font-sans: "TT Norms Pro Mono", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
+    --color-primary-100: #F9F0E6;
+    --color-primary-300: #F3BE82;
     --color-primary-500: #F8A442;
     --color-primary-600: #db7a2c;
     --color-primary-700: #CE7308;
     --color-success-600: #22C55E;
+    --color-blue-800: #1F2937;
     --color-blue-900: #111827;
     --color-gray-500: #6B7280;
     --color-gray-100: #F3F4F6

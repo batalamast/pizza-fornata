@@ -1,5 +1,3 @@
-import { Stars } from "~/components/reviews/Stars";
-import { reviews } from "~/mock/reviews";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Button } from "~/components/ui/Button";
@@ -7,7 +5,7 @@ import { FaArrowRight, FaPhoneAlt } from "react-icons/fa";
 
 const EventsSection = () => {
     return (
-        <section className="relative py-60 overflow-hidden">
+        <section className="relative py-70 overflow-hidden">
             {/* Background image */}
             <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -20,7 +18,8 @@ const EventsSection = () => {
 
             {/* Content */}
             <div className="relative z-10">
-                <div className="mx-auto max-w-4xl flex flex-col justify-center items-center gap-4 text-center">
+                <div className="mx-auto max-w-4xl flex flex-col justify-center items-center gap-4 text-center relative">
+                    <img src="/images/reviews/made-in-thessaloniki.png" alt="made-in-thessaloniki" className="absolute -end-10 -top-40" />
                     <div className="text-[80px] font-extrabold uppercase w-full lg:w-[700px] leading-20">
                         <span className="text-white">Events</span> ON PIZZA FORNATA
                     </div>
