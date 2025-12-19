@@ -40,6 +40,14 @@ html, body {
     font-display: swap;
 }
 
+@font-face {
+    font-family: "TT Norms Pro Mono";
+    src: url("/public/fonts/TTNormsPro-ExtraBold.ttf") format("truetype");
+    font-weight: 950;
+    font-style: normal;
+    font-display: swap;
+}
+
 
 @layer components {
     .btn-primary {

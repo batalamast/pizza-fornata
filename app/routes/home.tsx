@@ -5,6 +5,7 @@ import StatisticsSection from "~/components/statistics/StatisticsSection";
 import MenuSection from "~/components/menu/MenuSection";
 import DeliverySection from "~/components/delivery/DeliverySection";
 import ReviewsSection from "~/components/reviews/ReviewsSection";
+import EventsSection from "~/components/events/EventsSection";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -28,6 +29,7 @@ export default function Home() {
             <MenuSection />
             <DeliverySection />
             <ReviewsSection />
+            <EventsSection />
         </>
     );
 }
