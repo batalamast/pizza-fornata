@@ -8,6 +8,7 @@ import ReviewsSection from "~/components/reviews/ReviewsSection";
 import EventsSection from "~/components/events/EventsSection";
 import QuestionsSection from "~/components/questions/QuestionsSection";
 import { ContactMapSection } from "~/components/contact-us/ContactUs";
+import Footer from "~/components/footer/Footer";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -43,6 +44,7 @@ export default function Home() {
                 ctaLabel="Επικοινωνήστε μαζί μας"
                 ctaHref="#contact"
             />
+            <Footer />
         </>
     );
 }
