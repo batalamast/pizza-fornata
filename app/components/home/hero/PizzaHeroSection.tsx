@@ -93,7 +93,14 @@ const PizzaHero: React.FC = () => {
                             animate={{ opacity: 1, y: 0, rotate: rotation }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <img src={selected.image} alt={selected.label} className="h-full w-full object-cover" />
+                            <img
+                                src={selected.image}
+                                alt={selected.label}
+                                className="h-full w-full object-cover"
+                                loading="eager"
+                                decoding="async"
+                                fetchPriority="high"
+                            />
                         </motion.div>
 
                         <Button className="pointer-events-auto btn-primary text-xl font-semibold absolute left-1/2 top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg">

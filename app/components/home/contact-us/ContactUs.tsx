@@ -78,7 +78,7 @@ export function ContactMapSection({
 
                 {/* Map card */}
                 <div className="mt-14">
-                    <img src="/images/contact/map.png" alt="map" />
+                    <img src="/images/contact/map.png" alt="map" loading="lazy" />
                     {/*<div className="mx-auto overflow-hidden rounded-2xl bg-white shadow-[0_22px_40px_rgba(0,0,0,0.22)]">*/}
                     {/*    <div className="h-[420px] w-full">*/}
                     {/*        <iframe*/}

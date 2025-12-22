@@ -9,7 +9,7 @@ export function Navbar() {
         <header className="bg-white">
             <div className="mx-auto flex items-center justify-between gap-6 px-4 py-4 md:px-8 lg:px-20 max-w-8xl">
                 <Link to="/" className="flex items-center">
-                    <img src="/images/logo.png" alt="Fornata" />
+                    <img src="/images/logo.png" alt="Fornata" loading="eager" decoding="async" fetchPriority="high" />
                 </Link>
 
                 {/* middle nav links */}

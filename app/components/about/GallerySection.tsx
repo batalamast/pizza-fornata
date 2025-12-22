@@ -20,6 +20,7 @@ const GallerySection = () => {
                             alt="pizza-dummy"
                             className="pointer-events-none absolute left-1/2 -top-40 transform -translate-x-1/2"
                             aria-hidden="true"
+                            loading="lazy"
                         />
 
                         <div className="text-[14px] font-semibold tracking-[0.18em] text-primary-900">ΠΩΣ ΞΕΚΙΝΗΣΑΜΕ</div>
@@ -52,6 +53,7 @@ const GallerySection = () => {
                             alt="call us"
                             className="pointer-events-none absolute bottom-0 end-6 w-40 drop-shadow-[0_16px_30px_rgba(0,0,0,0.18)]"
                             aria-hidden="true"
+                            loading="lazy"
                         />
                     </div>
                 </div>

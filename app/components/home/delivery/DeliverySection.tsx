@@ -43,7 +43,7 @@ const DeliverySection = () => {
                     </div>
                     <div className={"bg-[#EF4848] rounded-xl h-[250px] flex flex-col items-center justify-end shadow-lg shadow-[#EF4848]"}>
                         <div>
-                            <img src="/images/efood.png" alt="wolt" />
+                            <img src="/images/efood.png" alt="wolt" loading="lazy" />
                         </div>
                         <div className={"text-center"}>
                             <Button className={"bg-white rounded-md mt-10 text-primary-500 px-4 py-3 mb-7 text-sm"}>
@@ -53,7 +53,7 @@ const DeliverySection = () => {
                     </div>
                     <div className={"bg-[#FC7F01] rounded-xl h-[250px] flex flex-col items-center justify-end shadow-lg shadow-[#FC7F01]"}>
                         <div>
-                            <img src="/images/wolt.png" alt="wolt" />
+                            <img src="/images/wolt.png" alt="wolt" loading="lazy" />
                         </div>
                         <div className={"text-center"}>
                             <Button className={"bg-white rounded-md mt-10 text-primary-500 px-4 py-3 mb-7 text-sm"}>
