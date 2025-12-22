@@ -47,7 +47,7 @@ export function ContactMapSection({
             {topOverlay ? <div className="absolute inset-x-0 top-0 h-[360px] bg-black/55" aria-hidden="true" /> : null}
 
             {/* Content */}
-            <div className="relative z-10 mx-auto max-w-7xl pb-28 pt-16">
+            <div className="relative z-10 mx-auto max-w-8xl px-4 md:px-8 lg:px-20 pb-28 pt-16">
                 <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
                     {/* Left */}
                     <div className="text-white">

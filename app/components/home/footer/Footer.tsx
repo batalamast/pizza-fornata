@@ -4,7 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 const Footer = () => {
     return (
         <section className="py-14 bg-gray-100 ">
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-8xl px-4 md:px-8 lg:px-20">
                 <div className={"flex justify-between flex-wrap gap-8"}>
                     <div className="flex flex-col items-start gap-4">
                         <img src="/images/logo.png" alt="Fornata" />
