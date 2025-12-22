@@ -19,7 +19,12 @@ const EventsSection = () => {
             {/* Content */}
             <div className="relative z-10">
                 <div className="mx-auto max-w-4xl flex flex-col justify-center items-center gap-4 text-center relative">
-                    <img src="/images/reviews/made-in-thessaloniki.png" alt="made-in-thessaloniki" className="absolute -end-10 -top-40" />
+                    <img
+                        src="/images/reviews/made-in-thessaloniki.png"
+                        alt="made-in-thessaloniki"
+                        className="absolute -end-10 -top-40"
+                        loading="lazy"
+                    />
                     <div className="text-[80px] font-extrabold uppercase w-full lg:w-[700px] leading-20">
                         <span className="text-white">Events</span> ON PIZZA FORNATA
                     </div>

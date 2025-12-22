@@ -28,7 +28,14 @@ export default function LanguageSwitcher({ className = "" }) {
                             aria-pressed={isActive}
                             onClick={() => i18n.changeLanguage(lang.code)}
                         >
-                            <img src={lang.img} alt={lang.alt} className="rounded-2xl" />
+                            <img
+                                src={lang.img}
+                                alt={lang.alt}
+                                className="rounded-2xl"
+                                loading="eager"
+                                decoding="async"
+                                fetchPriority="high"
+                            />
                         </button>
                     );
                 })}
