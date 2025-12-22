@@ -67,9 +67,19 @@ const PizzaHero: React.FC = () => {
 
     return (
         <section className="relative min-h-[90vh] overflow-hidden text-black">
-            <div
-                className="absolute inset-0 bg-cover bg-center opacity-35"
-                style={{ backgroundImage: "url('/images/hero/fournos-hero.jpg')" }}
+            {/*<div*/}
+            {/*    className="absolute inset-0 bg-cover bg-center opacity-35"*/}
+            {/*    style={{ backgroundImage: "url('/images/hero/fournos-hero.jpg')" }}*/}
+            {/*/>*/}
+
+            <img
+                src="/images/hero/fournos-hero.jpg"
+                sizes="100vw"
+                alt="Pizza Fornata Hero Background"
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover opacity-35"
+                fetchPriority="high"
+                decoding="async"
             />
 
             <div className="pointer-events-none absolute bottom-[-420px] left-1/2 z-10 h-[840px] w-[840px] -translate-x-1/2">
