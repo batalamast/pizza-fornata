@@ -19,17 +19,21 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="el" dir="ltr">
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>Pizza Fornata | Αυθεντική πίτσα σε ξυλόφουρνο</title>
-                <link rel="preload" as="image" href="/images/hero/fournos-hero.jpg" />
-                <link rel="preload" as="image" href="/images/hero/pizza-hero.png" />
+
+                <meta name="description" content="Pizza Fornata — αυθεντική πίτσα σε ξυλόφουρνο. Dine in, take away & delivery." />
+
                 <Meta />
                 <Links />
+
+                <link rel="preload" as="image" href="/images/hero/fournos-hero.jpg" />
+                <link rel="preload" as="image" href="/images/hero/pizza-hero.png" />
             </head>
-            <body>
+
+            <body dir="ltr">
                 {children}
                 <ScrollRestoration />
                 <Scripts />
