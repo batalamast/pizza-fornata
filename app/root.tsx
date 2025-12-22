@@ -33,6 +33,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 {children}
                 <ScrollRestoration />
                 <Scripts />
+                <script src="https://cdn.userway.org/widget.js" data-account="KsUWpvRe3c" defer />
             </body>
         </html>
     );
