@@ -99,8 +99,8 @@ const PizzaHero: React.FC = () => {
                     <div className="relative h-full w-full overflow-hidden rounded-full">
                         <motion.div
                             className="h-full w-full"
-                            initial={{ opacity: 0, y: 60, rotate: 0 }}
-                            animate={{ opacity: 1, y: 0, rotate: rotation }}
+                            initial={false}
+                            animate={{ rotate: rotation }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
                             <img
