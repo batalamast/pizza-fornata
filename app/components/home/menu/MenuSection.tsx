@@ -5,6 +5,7 @@ import type { TMenuCard } from "~/types/menu.type";
 import { IoIosArrowForward } from "react-icons/io";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { MenuItemCard } from "~/components/home/menu/MenuItemCard";
+import { motion } from "framer-motion";
 
 export const MenuSection = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -41,9 +42,22 @@ export const MenuSection = () => {
     return (
         <section className="py-14" id="menus" aria-labelledby="menus-title">
             {selectedMenu ? (
-                <div className="mx-auto max-w-8xl px-4 md:px-8 lg:px-20">
+                <motion.div
+                    className="mx-auto max-w-8xl px-4 md:px-8 lg:px-20"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                     {/* Breadcrumbs (a11y) */}
-                    <nav className="flex items-center justify-center gap-2" aria-label="Breadcrumb">
+                    <motion.nav
+                        className="flex items-center justify-center gap-2"
+                        aria-label="Breadcrumb"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.45, ease: "easeOut" }}
+                    >
                         <ol className="flex items-center gap-2">
                             <li>
                                 <button
@@ -63,12 +77,19 @@ export const MenuSection = () => {
                                 </span>
                             </li>
                         </ol>
-                    </nav>
+                    </motion.nav>
 
                     {/* Proper heading */}
-                    <h2 id="menus-title" className="text-center text-[40px] font-semibold mt-5">
+                    <motion.h2
+                        id="menus-title"
+                        className="text-center text-[40px] font-semibold mt-5"
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
                         {selectedMenu.title}
-                    </h2>
+                    </motion.h2>
 
                     <div className="flex w-full justify-center px-4 mt-5">
                         <div className="w-full max-w-8xl">
@@ -79,21 +100,34 @@ export const MenuSection = () => {
                                     if (id) setCategory(id);
                                 }}
                             >
-                                <TabList className="flex flex-wrap justify-center gap-3" aria-label="Menu categories">
-                                    {menusList.categories.map(category => (
-                                        <Tab
-                                            key={category.id}
-                                            className="rounded-full border cursor-pointer border-primary-300 px-4 py-1.5 text-primary-500 bg-white/70 data-[selected]:bg-primary-500 data-[selected]:text-white data-[selected]:font-semibold hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                                        >
-                                            {category.title}
-                                        </Tab>
-                                    ))}
-                                </TabList>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.4 }}
+                                    transition={{ duration: 0.45, ease: "easeOut" }}
+                                >
+                                    <TabList className="flex flex-wrap justify-center gap-3" aria-label="Menu categories">
+                                        {menusList.categories.map(category => (
+                                            <Tab
+                                                key={category.id}
+                                                className="rounded-full border cursor-pointer border-primary-300 px-4 py-1.5 text-primary-500 bg-white/70 data-[selected]:bg-primary-500 data-[selected]:text-white data-[selected]:font-semibold hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                            >
+                                                {category.title}
+                                            </Tab>
+                                        ))}
+                                    </TabList>
+                                </motion.div>
 
-                                <p className="text-center text-sm font-semibold mt-5">
+                                <motion.p
+                                    className="text-center text-sm font-semibold mt-5"
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.4 }}
+                                    transition={{ duration: 0.45, ease: "easeOut" }}
+                                >
                                     *Η πρώτη τιμή απευθύνεται στο dining και η δεύτερη στο{" "}
                                     <span className="text-primary-500">take away</span>
-                                </p>
+                                </motion.p>
 
                                 <TabPanels className="mt-6">
                                     {menusList.categories.map(category => {
@@ -104,17 +138,44 @@ export const MenuSection = () => {
                                                 className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                             >
                                                 {products.length === 0 ? (
-                                                    <div className="rounded-xl bg-white/80 p-6 text-center text-sm">
+                                                    <motion.div
+                                                        className="rounded-xl bg-white/80 p-6 text-center text-sm"
+                                                        initial={{ opacity: 0, y: 10 }}
+                                                        whileInView={{ opacity: 1, y: 0 }}
+                                                        viewport={{ once: true, amount: 0.3 }}
+                                                        transition={{ duration: 0.45, ease: "easeOut" }}
+                                                    >
                                                         Δεν υπάρχουν προϊόντα σε αυτή την κατηγορία.
-                                                    </div>
+                                                    </motion.div>
                                                 ) : (
-                                                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3" role="list">
+                                                    <motion.div
+                                                        className="grid grid-cols-1 gap-6 md:grid-cols-3"
+                                                        role="list"
+                                                        initial="hidden"
+                                                        whileInView="show"
+                                                        viewport={{ once: true, amount: 0.2 }}
+                                                        variants={{
+                                                            hidden: {},
+                                                            show: { transition: { staggerChildren: 0.08 } }
+                                                        }}
+                                                    >
                                                         {products.map(product => (
-                                                            <div role="listitem" key={product.id}>
+                                                            <motion.div
+                                                                role="listitem"
+                                                                key={product.id}
+                                                                variants={{
+                                                                    hidden: { opacity: 0, y: 14 },
+                                                                    show: {
+                                                                        opacity: 1,
+                                                                        y: 0,
+                                                                        transition: { duration: 0.45, ease: "easeOut" }
+                                                                    }
+                                                                }}
+                                                            >
                                                                 <MenuItemCard product={product} menuSlug={selectedMenu.slug} />
-                                                            </div>
+                                                            </motion.div>
                                                         ))}
-                                                    </div>
+                                                    </motion.div>
                                                 )}
                                             </TabPanel>
                                         );
@@ -123,27 +184,63 @@ export const MenuSection = () => {
                             </TabGroup>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             ) : (
-                <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-20">
+                <motion.div
+                    className="mx-auto max-w-7xl px-4 md:px-8 lg:px-20"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                >
                     {/* Proper heading for section */}
-                    <h2 id="menus-title" className="text-center text-[40px]">
+                    <motion.h2
+                        id="menus-title"
+                        className="text-center text-[40px]"
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
                         Menus
-                    </h2>
+                    </motion.h2>
 
-                    <p className="text-center">
+                    <motion.p
+                        className="text-center"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.45, ease: "easeOut" }}
+                    >
                         <span className="text-primary-700 font-semibold">Επέλεξε</span> ποιον{" "}
                         <span className="text-primary-700 font-semibold">κατάλογο</span> θα δεις.
-                    </p>
+                    </motion.p>
 
-                    <div className="my-8 grid grid-cols-1 gap-8 md:grid-cols-2" role="list">
+                    <motion.div
+                        className="my-8 grid grid-cols-1 gap-8 md:grid-cols-2"
+                        role="list"
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={{
+                            hidden: {},
+                            show: { transition: { staggerChildren: 0.1 } }
+                        }}
+                    >
                         {menus.map(item => (
-                            <div role="listitem" key={item.slug}>
+                            <motion.div
+                                role="listitem"
+                                key={item.slug}
+                                variants={{
+                                    hidden: { opacity: 0, y: 14 },
+                                    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } }
+                                }}
+                            >
                                 <MenuCard item={item} onCtaClick={onCtaClick} />
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             )}
         </section>
     );

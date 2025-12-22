@@ -1,7 +1,7 @@
 import { cn } from "~/lib/utils";
 import type { TStatistic } from "~/types/statistic.type";
-import { Button } from "~/components/ui/Button";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from "react-router";
 
 type Props = {
     item: TStatistic;
@@ -10,13 +10,14 @@ type Props = {
 };
 
 export function StatisticsCard({ item, onCtaClick, className }: Props) {
-    const base = "rounded-xl bg-white px-7 py-6 shadow-lg shadow-black/10";
+    const base =
+        "rounded-xl bg-white px-7 py-6 shadow-lg shadow-black/10 hover:scale-[1.02] transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:ring-4 hover:ring-primary-500/80 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-500";
 
     return (
         <article className={cn(base, className)}>
             {/* Make the whole card a real link, with proper focus styles */}
-            <a
-                href={item.link}
+            <Link
+                to="/about"
                 className={cn(
                     "block rounded-xl",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
@@ -50,7 +51,7 @@ export function StatisticsCard({ item, onCtaClick, className }: Props) {
                         <FaArrowRightLong className="w-3.5 h-3.5 ms-2" aria-hidden="true" focusable="false" />
                     </span>
                 </div>
-            </a>
+            </Link>
         </article>
     );
 }

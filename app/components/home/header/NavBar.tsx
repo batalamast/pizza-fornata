@@ -40,7 +40,7 @@ export function Navbar() {
                         About
                     </NavLink>
 
-                    <a href={PHONE_NUMBER}>
+                    <a href={`tel:${PHONE_NUMBER}`}>
                         <Button className="btn-primary font-medium text-[24px]" rightIcon={<FaPhoneAlt className="w-5 h-5" />}>
                             Καλέστε μας
                         </Button>
