@@ -9,6 +9,8 @@ import EventsSection from "~/components/events/EventsSection";
 import QuestionsSection from "~/components/questions/QuestionsSection";
 import { ContactMapSection } from "~/components/contact-us/ContactUs";
 import Footer from "~/components/footer/Footer";
+import { useSearchParams } from "react-router";
+import { useEffect } from "react";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -23,6 +25,18 @@ export function meta({}: Route.MetaArgs) {
 
 // TODO: Fav icon
 export default function Home() {
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        const menuSlug = searchParams.get("menu_slug");
+        const category = searchParams.get("category");
+
+        if (menuSlug || category) {
+            const el = document.getElementById("menus");
+            el?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    }, [searchParams]);
+
     return (
         <>
             <Navbar />

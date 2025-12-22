@@ -18,9 +18,28 @@ export const MenuSection = () => {
     };
 
     const selectedMenu = menusPerSlug.get(searchParams.get("menu_slug") || "");
+    const categoryParam = Number(searchParams.get("category"));
+    const categories = menusList.categories;
+
+    const activeCategoryId = categories.some(c => c.id === categoryParam) ? categoryParam : categories[0]?.id;
+    const selectedIndex = Math.max(
+        0,
+        categories.findIndex(c => c.id === activeCategoryId)
+    );
+
+    const setCategory = (categoryId: number) => {
+        setSearchParams(
+            prev => {
+                const next = new URLSearchParams(prev);
+                next.set("category", String(categoryId));
+                return next;
+            },
+            { replace: true, preventScrollReset: true }
+        );
+    };
 
     return (
-        <section className="py-14">
+        <section className="py-14" id="menus">
             {selectedMenu ? (
                 <div className="mx-auto max-w-8xl px-4 md:px-8 lg:px-20">
                     <div className="flex items-center justify-center gap-2">
@@ -36,12 +55,18 @@ export const MenuSection = () => {
 
                     <div className="flex w-full justify-center px-4 mt-5">
                         <div className="w-full max-w-8xl">
-                            <TabGroup>
+                            <TabGroup
+                                selectedIndex={selectedIndex}
+                                onChange={index => {
+                                    const id = categories[index]?.id;
+                                    if (id) setCategory(id);
+                                }}
+                            >
                                 <TabList className="flex flex-wrap justify-center gap-3">
                                     {menusList.categories.map(category => (
                                         <Tab
                                             key={category.id}
-                                            className="rounded-full border cursor-pointer border-primary-300 px-4 py-1.5 text-primary-500 bg-white/70 data-[selected]:bg-primary-500 data-[selected]:text-white data-[selected]:font-semibold hover:bg-white"
+                                            className="rounded-full border cursor-pointer border-primary-300 px-4 py-1.5 text-primary-500 bg-white/70 data-[selected]:bg-primary-500 data-[selected]:text-white data-[selected]:font-semibold hover:bg-white focus:outline-none"
                                         >
                                             {category.title}
                                         </Tab>
