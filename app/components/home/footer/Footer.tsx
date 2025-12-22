@@ -1,5 +1,6 @@
 import { Button } from "~/components/ui/Button";
 import { FaPhoneAlt } from "react-icons/fa";
+import LanguageSwitcher from "~/components/ui/LanguageSwitcher";
 
 const Footer = () => {
     return (
@@ -9,16 +10,7 @@ const Footer = () => {
                     <div className="flex flex-col items-start gap-4">
                         <img src="/images/logo.png" alt="Fornata" />
                         <div className="text-sm text-gray-500 max-w-2/3">©Copyright 2026 Pizzeria Fornata. All rights reserved.</div>
-                        <div className="flex items-center gap-4">
-                            <div className="flex items-center gap-2">
-                                <button className="shadow-md rounded-2xl">
-                                    <img src="/images/flags/en.png" alt="English" className=" rounded-2xl" />
-                                </button>
-                                <button className="shadow-md rounded-2xl">
-                                    <img src="/images/flags/el.png" alt="Ελληνικά" className="rounded-2xl" />
-                                </button>
-                            </div>
-                        </div>
+                        <LanguageSwitcher />
                     </div>
                     <div className="flex flex-col gap-2">
                         <div>Company</div>

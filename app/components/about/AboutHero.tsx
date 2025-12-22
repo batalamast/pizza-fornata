@@ -1,7 +1,9 @@
 import React from "react";
 import { Button } from "~/components/ui/Button";
+import { useTranslation } from "react-i18next";
 
 const AboutHero = () => {
+    const { t } = useTranslation();
     return (
         <section className="relative min-h-[90vh] overflow-hidden">
             {/* Background image */}
@@ -24,7 +26,7 @@ const AboutHero = () => {
                     </h1>
 
                     <div className="mt-10">
-                        <Button className="bg-primary-500 px-4 py-2 rounded-md text-lg font-semibold shadow-lg">Δες περισσότερα</Button>
+                        <Button className="bg-primary-500 px-4 py-2 rounded-md text-lg font-semibold shadow-lg">{t("see_more")}</Button>
                     </div>
                 </div>
             </div>
