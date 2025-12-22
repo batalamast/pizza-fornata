@@ -1,10 +1,10 @@
-import { MenuCard } from "~/components/menu/MenuCard";
+import { MenuCard } from "~/components/home/menu/MenuCard";
 import { menus, menusList, menusPerSlug, productsPerCategoryId } from "~/mock/menu";
 import { useSearchParams } from "react-router";
 import type { TMenuCard } from "~/types/menu.type";
 import { IoIosArrowForward } from "react-icons/io";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { MenuItemCard } from "~/components/menu/MenuItemCard";
+import { MenuItemCard } from "~/components/home/menu/MenuItemCard";
 
 export const MenuSection = () => {
     const [searchParams, setSearchParams] = useSearchParams();

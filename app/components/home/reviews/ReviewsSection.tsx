@@ -1,4 +1,4 @@
-import { Stars } from "~/components/reviews/Stars";
+import { Stars } from "~/components/home/reviews/Stars";
 import { reviews } from "~/mock/reviews";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

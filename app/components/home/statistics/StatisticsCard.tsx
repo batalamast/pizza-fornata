@@ -16,7 +16,7 @@ export function StatisticsCard({ item, onCtaClick, className }: Props) {
         <a
             href={item.link}
             className={cn(base, "block focus:outline-none focus:ring-2 focus:ring-white/80", className)}
-            onClick={e => {
+            onClick={() => {
                 onCtaClick?.(item);
                 // If you want to fully control navigation, prevent default in the parent handler.
                 // e.preventDefault();

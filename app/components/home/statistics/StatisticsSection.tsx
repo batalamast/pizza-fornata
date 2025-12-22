@@ -1,5 +1,5 @@
 import { statisticItems } from "~/mock/statistics";
-import { StatisticsCard } from "~/components/statistics/StatisticsCard";
+import { StatisticsCard } from "~/components/home/statistics/StatisticsCard";
 
 const StatisticsSection = () => {
     return (
