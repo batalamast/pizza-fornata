@@ -11,8 +11,9 @@
     --color-success-600: #22C55E;
     --color-blue-800: #1F2937;
     --color-blue-900: #111827;
+    --color-gray-100: #F3F4F6;
+    --color-gray-300: #D1D5DB;
     --color-gray-500: #6B7280;
-    --color-gray-100: #F3F4F6
 }
 
 html, body {
