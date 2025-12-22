@@ -3,20 +3,14 @@ import PizzaHero from "~/components/home/hero/PizzaHeroSection";
 import { Navbar } from "~/components/home/header/NavBar";
 import StatisticsSection from "~/components/home/statistics/StatisticsSection";
 import { useSearchParams } from "react-router";
-import { lazy, Suspense, useEffect } from "react";
-
-const Footer = lazy(() => import("~/components/home/footer/Footer"));
-
-const ContactMapSection = lazy(() => import("~/components/home/contact-us/ContactUs").then(m => ({ default: m.ContactMapSection })));
-
-const QuestionsSection = lazy(() => import("~/components/home/questions/QuestionsSection"));
-
-const EventsSection = lazy(() => import("~/components/home/events/EventsSection"));
-
-const ReviewsSection = lazy(() => import("~/components/home/reviews/ReviewsSection"));
-
-const MenuSection = lazy(() => import("~/components/home/menu/MenuSection"));
-const DeliverySection = lazy(() => import("~/components/home/delivery/DeliverySection"));
+import { useEffect } from "react";
+import MenuSection from "~/components/home/menu/MenuSection";
+import DeliverySection from "~/components/home/delivery/DeliverySection";
+import ReviewsSection from "~/components/home/reviews/ReviewsSection";
+import EventsSection from "~/components/home/events/EventsSection";
+import QuestionsSection from "~/components/home/questions/QuestionsSection";
+import { ContactMapSection } from "~/components/home/contact-us/ContactUs";
+import Footer from "~/components/home/footer/Footer";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -48,26 +42,22 @@ export default function Home() {
             <Navbar />
             <PizzaHero />
             <StatisticsSection />
-
-            <Suspense fallback={null}>
-                {/*<AboutUsSection />*/}
-                <MenuSection />
-                <DeliverySection />
-                <ReviewsSection />
-                <EventsSection />
-                <QuestionsSection />
-                <ContactMapSection
-                    backgroundSrc="/images/contact/contact-bottom.png"
-                    title="Που βρισκόμαστε;"
-                    description="Tincidunt posuere egestas ut vitae nisl. Mauris enim blandit sit amet ullamcorper nunc id lobortis nam."
-                    rightCity="Θεσσαλονίκη"
-                    rightAddress="Κων/νου Παλαιολόγου 25, 555 35"
-                    phone="231 032 8320"
-                    ctaLabel="Επικοινωνήστε μαζί μας"
-                    ctaHref="#contact"
-                />
-                <Footer />
-            </Suspense>
+            <MenuSection />
+            <DeliverySection />
+            <ReviewsSection />
+            <EventsSection />
+            <QuestionsSection />
+            <ContactMapSection
+                backgroundSrc="/images/contact/contact-bottom.png"
+                title="Που βρισκόμαστε;"
+                description="Tincidunt posuere egestas ut vitae nisl. Mauris enim blandit sit amet ullamcorper nunc id lobortis nam."
+                rightCity="Θεσσαλονίκη"
+                rightAddress="Κων/νου Παλαιολόγου 25, 555 35"
+                phone="231 032 8320"
+                ctaLabel="Επικοινωνήστε μαζί μας"
+                ctaHref="#contact"
+            />
+            <Footer />
         </>
     );
 }
