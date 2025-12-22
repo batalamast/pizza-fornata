@@ -39,8 +39,12 @@ export function ContactMapSection({
     className
 }: ContactMapSectionProps) {
     return (
-        <section className={cn("relative overflow-hidden", className)}>
-            {/* Background image */}
+        <section
+            className={cn("relative overflow-hidden", className)}
+            aria-labelledby="contact-hero-title"
+            aria-describedby={description ? "contact-hero-desc" : undefined}
+        >
+            {/* Background image (keep as-is, but ensure it's decorative) */}
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${backgroundSrc})` }} aria-hidden="true" />
 
             {/* Top dark overlay */}
@@ -51,11 +55,22 @@ export function ContactMapSection({
                 <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
                     {/* Left */}
                     <div className="text-white">
-                        <div className="text-[13px] font-semibold tracking-[0.18em] opacity-90">{eyebrow}</div>
-                        <h2 className="mt-3 text-4xl font-extrabold leading-tight">{title}</h2>
-                        {description ? <p className="mt-3 max-w-md text-sm leading-relaxed text-white/80">{description}</p> : null}
+                        <p className="text-[13px] font-semibold tracking-[0.18em] opacity-90">{eyebrow}</p>
 
-                        <Button className="bg-primary-500 mt-5 px-4 py-2 text-black text-lg rounded-md font-bold">
+                        <h2 id="contact-hero-title" className="mt-3 text-4xl font-extrabold leading-tight">
+                            {title}
+                        </h2>
+
+                        {description ? (
+                            <p id="contact-hero-desc" className="mt-3 max-w-md text-sm leading-relaxed text-white/80">
+                                {description}
+                            </p>
+                        ) : null}
+
+                        <Button
+                            className="bg-primary-500 mt-5 px-4 py-2 text-black text-lg rounded-md font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                            aria-label="Επικοινωνήστε μαζί μας"
+                        >
                             Επικοινωνήστε μαζί μας
                         </Button>
                     </div>
@@ -70,7 +85,13 @@ export function ContactMapSection({
 
                             <div>
                                 <div className="font-semibold">{phoneLabel}</div>
-                                <div className="mt-1 text-white/80 text-sm">{phone}</div>
+                                <a
+                                    href={`tel:${phone}`}
+                                    className="mt-1 text-white/80 text-sm inline-flex rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                    aria-label={`Καλέστε στο ${phone}`}
+                                >
+                                    {phone}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -78,7 +99,8 @@ export function ContactMapSection({
 
                 {/* Map card */}
                 <div className="mt-14">
-                    <img src="/images/contact/map.png" alt="map" loading="lazy" />
+                    <img src="/images/contact/map.png" alt="Χάρτης τοποθεσίας" loading="lazy" decoding="async" />
+
                     {/*<div className="mx-auto overflow-hidden rounded-2xl bg-white shadow-[0_22px_40px_rgba(0,0,0,0.22)]">*/}
                     {/*    <div className="h-[420px] w-full">*/}
                     {/*        <iframe*/}

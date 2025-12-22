@@ -10,9 +10,12 @@ export function FAQ({ items }: { items: TQuestion[] }) {
         <div className="space-y-6 mt-10">
             {items.map(item => {
                 const isOpen = openId === item.id;
+                const btnId = `faq-button-${item.id}`;
+                const panelId = `faq-panel-${item.id}`;
 
                 return (
                     <button
+                        id={btnId}
                         type="button"
                         key={item.id}
                         className={cn(
@@ -21,8 +24,14 @@ export function FAQ({ items }: { items: TQuestion[] }) {
                         )}
                         onClick={() => setOpenId(isOpen ? -1 : item.id)}
                         aria-expanded={isOpen}
+                        aria-controls={panelId}
                     >
-                        <div className="flex w-full items-center justify-between gap-6 text-left cursor-pointer">
+                        <div
+                            className="flex w-full items-center justify-between gap-6 text-left cursor-pointer"
+                            id={panelId}
+                            role="region"
+                            aria-labelledby={btnId}
+                        >
                             <div>{item.question}</div>
                             <div>{isOpen ? <IoIosArrowDown className="text-gray-500" /> : <IoIosArrowUp className="text-gray-500" />}</div>
                         </div>

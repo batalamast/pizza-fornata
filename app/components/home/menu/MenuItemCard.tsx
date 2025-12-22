@@ -21,13 +21,18 @@ export function MenuItemCard({ product, menuSlug }: Props) {
 
     return (
         <>
-            <div className={'overflow-hidden rounded-2xl border border-gray-300 bg-white", "shadow-[0_12px_30px_rgba(15,23,42,0.08)]'}>
+            <article
+                className={cn("overflow-hidden rounded-2xl border border-gray-300 bg-white", "shadow-[0_12px_30px_rgba(15,23,42,0.08)]")}
+                aria-labelledby={`product-title-${product.id}`}
+            >
                 {/* Image */}
                 <div className="relative">
                     <img
                         src={product.imageUrl}
                         alt={product.title}
                         className="block h-[360px] w-full object-cover"
+                        width="1200"
+                        height="360"
                         loading="lazy"
                         decoding="async"
                     />
@@ -35,21 +40,27 @@ export function MenuItemCard({ product, menuSlug }: Props) {
 
                 {/* Content */}
                 <div className="px-8 pb-8 pt-7">
-                    <h3 className="text-[32px] font-semibold">{product.title}</h3>
+                    <h3 id={`product-title-${product.id}`} className="text-[32px] font-semibold">
+                        {product.title}
+                    </h3>
 
                     <p className="mt-3 max-w-xl text-[18px] leading-relaxed line-clamp-2">{product.description}</p>
 
                     <div className="mt-3 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between items-center">
                         {/* CTA */}
                         <Button
-                            className="flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 shadow-md"
-                            rightIcon={<GoArrowRight className="w-4 h-4 text-black ms-2" />}
+                            className="flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                            rightIcon={<GoArrowRight className="w-4 h-4 text-black ms-2" aria-hidden="true" focusable="false" />}
                             onClick={() => setIsOpen(true)}
+                            aria-haspopup="dialog"
+                            aria-expanded={isOpen}
+                            aria-controls={`product-dialog-${product.id}`}
                         >
                             Δες Περισσότερα
                         </Button>
 
-                        <div className="flex justify-center items-center gap-6">
+                        {/* Prices */}
+                        <div className="flex justify-center items-center gap-6" aria-label="Prices">
                             {product.prices.map((price, idx) => {
                                 const isDineIn = menuSlug === "dine-in";
                                 const isThirty = price.size === "30cm";
@@ -77,10 +88,10 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-50" onClose={close}>
+                <Dialog as="div" className="relative z-50" onClose={close} id={`product-dialog-${product.id}`}>
                     {/* Backdrop */}
                     <TransitionChild
                         as={Fragment}
@@ -111,6 +122,8 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                                         "relative w-full max-w-6xl overflow-hidden rounded-2xl bg-white",
                                         "shadow-[0_30px_70px_rgba(0,0,0,0.35)]"
                                     )}
+                                    aria-labelledby={`product-dialog-title-${product.id}`}
+                                    aria-describedby={`product-dialog-desc-${product.id}`}
                                 >
                                     {/* Close button */}
                                     <button
@@ -118,11 +131,12 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                                         onClick={close}
                                         className={cn(
                                             "absolute right-4 top-4 z-20 grid h-10 w-10 place-items-center rounded-full",
-                                            "bg-white/90 shadow-md hover:bg-white"
+                                            "bg-white/90 shadow-md hover:bg-white",
+                                            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                         )}
-                                        aria-label="Close"
+                                        aria-label="Close dialog"
                                     >
-                                        <TfiClose className="h-5 w-5 text-blue-900" />
+                                        <TfiClose className="h-5 w-5 text-blue-900" aria-hidden="true" focusable="false" />
                                     </button>
 
                                     {/* Image */}
@@ -131,15 +145,22 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                                             src={product.imageUrl}
                                             alt={product.title}
                                             className="h-full w-full object-cover"
+                                            width="1200"
+                                            height="520"
                                             loading="lazy"
+                                            decoding="async"
                                         />
                                     </div>
 
                                     {/* Content */}
                                     <div className="px-6 pb-7 pt-7 md:px-10 md:pb-10">
-                                        <h3 className="text-[40px] font-semibold">{product.title}</h3>
+                                        <h3 id={`product-dialog-title-${product.id}`} className="text-[40px] font-semibold">
+                                            {product.title}
+                                        </h3>
 
-                                        <p className="mt-2 text-[20px]">{product.description}</p>
+                                        <p id={`product-dialog-desc-${product.id}`} className="mt-2 text-[20px]">
+                                            {product.description}
+                                        </p>
 
                                         <div className="mt-5 flex items-end justify-between gap-6">
                                             {/* Back button */}
@@ -148,14 +169,15 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                                                 onClick={close}
                                                 className={cn(
                                                     "inline-flex items-center gap-3 rounded-md bg-primary-500 px-4 py-2.5 cursor-pointer",
-                                                    "text-[16px] font-bold text-black shadow-md"
+                                                    "text-[16px] font-bold text-black shadow-md",
+                                                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                                 )}
                                             >
-                                                <span aria-hidden>←</span> Πίσω
+                                                <span aria-hidden="true">←</span> Πίσω
                                             </button>
 
                                             {/* Prices */}
-                                            <div className="flex justify-center items-center gap-6">
+                                            <div className="flex justify-center items-center gap-6" aria-label="Prices">
                                                 {product.prices.map((price, idx) => {
                                                     const isDineIn = menuSlug === "dine-in";
                                                     const isThirty = price.size === "30cm";
