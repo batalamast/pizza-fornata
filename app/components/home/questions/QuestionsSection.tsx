@@ -1,6 +1,6 @@
 import "swiper/css";
 import "swiper/css/navigation";
-import { FAQ } from "~/components/questions/FAQ";
+import { FAQ } from "~/components/home/questions/FAQ";
 import { questions } from "~/mock/questions";
 
 const QuestionsSection = () => {

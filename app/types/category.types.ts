@@ -1,6 +1,5 @@
-export type TMenuCard = {
+export type TCategory = {
     id: number;
     title: string;
     slug: string;
-    imageUrl: string;
 };
