@@ -1,6 +1,7 @@
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 
 import type { Route } from "./+types/root";
+import "~/utils/i18n";
 import "./app.css";
 
 export const links: Route.LinksFunction = () => [
@@ -22,6 +23,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>Pizza Fornata | Αυθεντική πίτσα σε ξυλόφουρνο</title>
                 <Meta />
                 <Links />
             </head>

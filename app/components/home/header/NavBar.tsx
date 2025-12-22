@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Button } from "~/components/ui/Button";
 import { PHONE_NUMBER } from "~/constants/info.constants";
+import LanguageSwitcher from "~/components/ui/LanguageSwitcher";
 
 export function Navbar() {
     return (
@@ -32,17 +33,7 @@ export function Navbar() {
                     </a>
                 </nav>
 
-                {/* right: button + languages */}
-                <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2">
-                        <button className="shadow-md rounded-2xl">
-                            <img src="/images/flags/en.png" alt="English" className=" rounded-2xl" />
-                        </button>
-                        <button className="shadow-md rounded-2xl">
-                            <img src="/images/flags/el.png" alt="Ελληνικά" className="rounded-2xl" />
-                        </button>
-                    </div>
-                </div>
+                <LanguageSwitcher />
             </div>
         </header>
     );
