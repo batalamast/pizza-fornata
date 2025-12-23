@@ -8,7 +8,7 @@ const bullets = [
 
 const GetToKnowsUsSection = () => {
     return (
-        <section className="py-16" aria-labelledby="about-section-title" aria-describedby="about-section-desc">
+        <section id="get-to-know-us" className="py-16" aria-labelledby="about-section-title" aria-describedby="about-section-desc">
             <div className="mx-auto max-w-8xl px-4 md:px-8 lg:px-20">
                 <div className="grid items-start gap-10 lg:grid-cols-2">
                     {/* Left */}

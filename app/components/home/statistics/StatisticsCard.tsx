@@ -1,7 +1,7 @@
 import { cn } from "~/lib/utils";
 import type { TStatistic } from "~/types/statistic.type";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Link } from "react-router";
+import { Button } from "~/components/ui/Button";
 
 type Props = {
     item: TStatistic;
@@ -16,8 +16,7 @@ export function StatisticsCard({ item, onCtaClick, className }: Props) {
     return (
         <article className={cn(base, className)}>
             {/* Make the whole card a real link, with proper focus styles */}
-            <Link
-                to="/about"
+            <div
                 className={cn(
                     "block rounded-xl",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
@@ -46,12 +45,15 @@ export function StatisticsCard({ item, onCtaClick, className }: Props) {
 
                 {/* CTA should be part of the same link (avoid nested interactive button) */}
                 <div className="mt-4">
-                    <span className="text-primary-500 text-[12px] inline-flex items-center">
+                    <Button
+                        onClick={() => onCtaClick?.(item)}
+                        className="text-primary-500 text-[12px] inline-flex items-center"
+                        rightIcon={<FaArrowRightLong className="w-3.5 h-3.5 ms-2" aria-hidden="true" focusable="false" />}
+                    >
                         {item.ctaText}
-                        <FaArrowRightLong className="w-3.5 h-3.5 ms-2" aria-hidden="true" focusable="false" />
-                    </span>
+                    </Button>
                 </div>
-            </Link>
+            </div>
         </article>
     );
 }

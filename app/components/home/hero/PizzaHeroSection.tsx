@@ -60,6 +60,13 @@ const PizzaHero: React.FC = () => {
         }
     }, [selected.id]);
 
+    const onShowMenu = () => {
+        const menuSection = document.getElementById("menus");
+        if (menuSection) {
+            menuSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
+
     const dotClasses = (active: boolean) =>
         `rounded-full transition-transform ${
             active ? "h-3 w-3 bg-[#f4a521] outline outline-[3px] outline-white scale-110" : "h-2.5 w-2.5 bg-white"
@@ -113,7 +120,10 @@ const PizzaHero: React.FC = () => {
                             />
                         </motion.div>
 
-                        <Button className="pointer-events-auto btn-primary text-xl font-semibold absolute left-1/2 top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg">
+                        <Button
+                            className="pointer-events-auto btn-primary text-xl font-semibold absolute left-1/2 top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg"
+                            onClick={onShowMenu}
+                        >
                             Δες τον κατάλογό μας
                         </Button>
                     </div>
@@ -158,7 +168,7 @@ const ArcLabel: React.FC<ArcLabelProps> = ({ option, active, onClick }) => {
         <button
             type="button"
             onClick={onClick}
-            className="pointer-events-auto absolute cursor-pointer"
+            className="pointer-events-auto absolute cursor-pointer hover:scale-[1.02] transition-all duration-200"
             style={{
                 left: `${x}%`,
                 top: `${y}%`,

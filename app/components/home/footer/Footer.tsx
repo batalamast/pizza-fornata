@@ -61,18 +61,19 @@ const Footer = () => {
                         </Link>
                     </nav>
 
-                    <div className="flex flex-col items-start gap-2">
-                        <div className="font-semibold">Follow us</div>
-
-                        <a
-                            href="https://facebook.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-500 inline-flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
-                            aria-label="Facebook (opens in a new tab)"
-                        >
-                            <img src="/images/media/fb.png" alt="Facebook" width="28" height="28" loading="lazy" decoding="async" />
-                        </a>
+                    <div className="flex flex-col justify-between items-start gap-2">
+                        <div>
+                            <div className="font-semibold">Follow us</div>
+                            <a
+                                href="https://facebook.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className=" mt-2 text-gray-500 inline-flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                aria-label="Facebook (opens in a new tab)"
+                            >
+                                <img src="/images/media/fb.png" alt="Facebook" width="28" height="28" loading="lazy" decoding="async" />
+                            </a>
+                        </div>
 
                         <a href={`tel:${PHONE_NUMBER}`} className="inline-flex" aria-label="Καλέστε μας">
                             <Button

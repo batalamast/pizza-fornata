@@ -42,6 +42,7 @@ export default function Home() {
             <Navbar />
             <PizzaHero />
             <StatisticsSection />
+            {/*<AboutSection />*/}
             <MenuSection />
             <DeliverySection />
             <ReviewsSection />

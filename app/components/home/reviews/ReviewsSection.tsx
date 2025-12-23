@@ -4,12 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { motion } from "framer-motion";
 
 const ReviewsSection = () => {
     return (
         <section className="relative py-80 overflow-hidden" aria-labelledby="testimonials-title">
-            {/* Background image (prefer <img> over CSS background for discovery/perf) */}
-            <img
+            {/* Background image */}
+            <motion.img
                 src="/images/reviews/testimonials.png"
                 alt=""
                 aria-hidden="true"
@@ -18,6 +19,10 @@ const ReviewsSection = () => {
                 decoding="async"
                 width="1920"
                 height="1080"
+                initial={{ scale: 1.03 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
             />
 
             {/* Overlay */}
@@ -25,12 +30,32 @@ const ReviewsSection = () => {
 
             {/* Content */}
             <div className="relative z-10">
-                <div className="mx-auto max-w-3xl rounded-md bg-white/80 py-7 px-4 md:px-8 flex flex-col justify-center items-center gap-4">
-                    <h2 id="testimonials-title" className="text-[30px] font-semibold text-center">
+                <motion.div
+                    className="mx-auto max-w-3xl rounded-md bg-white/80 py-7 px-4 md:px-8 flex flex-col justify-center items-center gap-4"
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 0.55, ease: "easeOut" }}
+                >
+                    <motion.h2
+                        id="testimonials-title"
+                        className="text-[30px] font-semibold text-center"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.45, ease: "easeOut", delay: 0.05 }}
+                    >
                         <span className="text-primary-500">Τι λένε</span> οι πελάτες μας
-                    </h2>
+                    </motion.h2>
 
-                    <div className="relative w-full" aria-live="polite">
+                    <motion.div
+                        className="relative w-full"
+                        aria-live="polite"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.6 }}
+                        transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+                    >
                         <Swiper
                             modules={[Navigation]}
                             spaceBetween={5}
@@ -52,7 +77,13 @@ const ReviewsSection = () => {
                         >
                             {reviews.map(review => (
                                 <SwiperSlide key={review.id} className="!w-full" role="group" aria-label={`Κριτική από ${review.creator}`}>
-                                    <figure className="flex flex-col justify-center items-center gap-4">
+                                    <motion.figure
+                                        className="flex flex-col justify-center items-center gap-4"
+                                        initial={{ opacity: 0, y: 10 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.5 }}
+                                        transition={{ duration: 0.45, ease: "easeOut" }}
+                                    >
                                         <Stars value={review.stars} aria-label={`${review.stars} στα 5`} />
 
                                         <blockquote className="w-full md:w-[500px] mx-auto text-center italic text-sm">
@@ -60,12 +91,12 @@ const ReviewsSection = () => {
                                         </blockquote>
 
                                         <figcaption className="text-xs">{review.creator}</figcaption>
-                                    </figure>
+                                    </motion.figure>
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );

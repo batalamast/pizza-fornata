@@ -2,8 +2,23 @@ import { statisticItems } from "~/mock/statistics";
 import { StatisticsCard } from "~/components/home/statistics/StatisticsCard";
 import { motion } from "framer-motion";
 import { card, container, fadeUp } from "~/constants/animation.constants";
+import { useNavigate } from "react-router";
 
 const StatisticsSection = () => {
+    const navigate = useNavigate();
+
+    const goToGetToKnowUs = () => {
+        const id = "get-to-know-us";
+
+        const elNow = document.getElementById(id);
+        if (elNow) {
+            elNow.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+        }
+
+        navigate(`/about#${id}`);
+    };
+
     return (
         <section
             className="bg-gradient-to-r from-[#EAB67B] to-[#F4D8B8] py-14"
@@ -32,7 +47,7 @@ const StatisticsSection = () => {
                 <motion.ul className="grid grid-cols-1 md:grid-cols-3 gap-8 my-8" role="list" variants={container}>
                     {statisticItems.map(item => (
                         <motion.li key={item.id} variants={card}>
-                            <StatisticsCard item={item} />
+                            <StatisticsCard item={item} onCtaClick={goToGetToKnowUs} />
                         </motion.li>
                     ))}
                 </motion.ul>
