@@ -6,12 +6,12 @@ import { useSearchParams } from "react-router";
 import { useEffect } from "react";
 import MenuSection from "~/components/home/menu/MenuSection";
 import DeliverySection from "~/components/home/delivery/DeliverySection";
+import AboutSection from "~/components/home/about-us/AboutSection";
 import ReviewsSection from "~/components/home/reviews/ReviewsSection";
 import EventsSection from "~/components/home/events/EventsSection";
 import QuestionsSection from "~/components/home/questions/QuestionsSection";
 import { ContactMapSection } from "~/components/home/contact-us/ContactUs";
 import Footer from "~/components/home/footer/Footer";
-import AboutSection from "~/components/home/about-us/AboutSection";
 
 export function meta({}: Route.MetaArgs) {
     return [

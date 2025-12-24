@@ -17,7 +17,7 @@ const QuestionsSection = () => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
                 <motion.div
-                    className="bg-white p-10 md:p-20 rounded-3xl"
+                    className="bg-white px-5 py-10 md:p-20 rounded-3xl"
                     initial={{ opacity: 0, scale: 0.98 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, amount: 0.1, margin: "0px 0px -180px 0px" }}
@@ -25,7 +25,7 @@ const QuestionsSection = () => {
                 >
                     <motion.h2
                         id="faq-title"
-                        className="text-[30px] font-extrabold uppercase"
+                        className="text-[25px] md:text-[30px] font-extrabold uppercase"
                         initial={{ opacity: 0, y: 12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.1, margin: "0px 0px -180px 0px" }}

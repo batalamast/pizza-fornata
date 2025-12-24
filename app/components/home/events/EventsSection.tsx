@@ -30,18 +30,18 @@ const EventsSection = () => {
                         src="/images/reviews/made-in-thessaloniki.png"
                         alt=""
                         aria-hidden="true"
-                        className="absolute -end-10 -top-40"
+                        className="absolute -end-10 -top-50 md:-top-40"
                         loading="lazy"
                         decoding="async"
                         width="220"
                         height="220"
                     />
 
-                    <h2 id="events-title" className="text-[80px] font-extrabold uppercase w-full lg:w-[700px] leading-[1]">
+                    <h2 id="events-title" className="text-[60px] md:text-[80px] font-extrabold uppercase w-full lg:w-[700px] leading-[1]">
                         <span className="text-white">Events</span> ON PIZZA FORNATA
                     </h2>
 
-                    <p className="font-semibold text-[30px]">DINE IN - TAKE AWAY - DELIVERY</p>
+                    <p className="font-semibold text-[20px] md:text-[30px]">DINE IN - TAKE AWAY - DELIVERY</p>
 
                     <p id="events-desc" className="max-w-3xl">
                         Lorem ipsum dolor sit amet consectetur. Euismod tortor at nisi molestie gravida ipsum. Sed facilisi magna a eget ut

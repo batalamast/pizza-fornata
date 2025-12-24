@@ -49,7 +49,7 @@ export function ContactMapSection({
             <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${backgroundSrc})` }} aria-hidden="true" />
 
             {/* Top dark overlay */}
-            {topOverlay ? <div className="absolute inset-x-0 top-0 h-[360px] bg-black/55" aria-hidden="true" /> : null}
+            {topOverlay ? <div className="absolute inset-x-0 top-0 h-[460px] md:h-[460px] bg-black/55" aria-hidden="true" /> : null}
 
             {/* Content */}
             <div className="relative z-10 mx-auto max-w-8xl px-4 md:px-8 lg:px-20 pb-28 pt-16">
