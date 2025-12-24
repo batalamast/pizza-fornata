@@ -9,7 +9,8 @@ type PizzaOption = {
     id: PizzaId;
     label: string;
     image: string;
-    angle: number;
+    mobileAngle: number;
+    desktopAngle: number;
 };
 
 const pizzaOptions: PizzaOption[] = [
@@ -17,31 +18,36 @@ const pizzaOptions: PizzaOption[] = [
         id: "special",
         label: "Special",
         image: "/images/hero/pizza-hero.png",
-        angle: 170
+        mobileAngle: 170,
+        desktopAngle: 170
     },
     {
         id: "margherita",
         label: "Margherita",
         image: "/images/hero/pizza-hero.png",
-        angle: 130
+        mobileAngle: 108,
+        desktopAngle: 130
     },
     {
         id: "village",
         label: "Village",
         image: "/images/hero/pizza-hero.png",
-        angle: 90
+        mobileAngle: 90,
+        desktopAngle: 90
     },
     {
         id: "fornata",
         label: "Fornata",
         image: "/images/hero/pizza-hero.png",
-        angle: 50
+        mobileAngle: 72,
+        desktopAngle: 50
     },
     {
         id: "carbonara",
         label: "Carbonara",
         image: "/images/hero/pizza-hero.png",
-        angle: 10
+        mobileAngle: 10,
+        desktopAngle: 10
     }
 ];
 
@@ -69,7 +75,7 @@ const PizzaHero: React.FC = () => {
 
     const dotClasses = (active: boolean) =>
         `rounded-full transition-transform ${
-            active ? "h-3 w-3 bg-[#f4a521] outline outline-[3px] outline-white scale-110" : "h-2.5 w-2.5 bg-white"
+            active ? "h-3 w-3 bg-primary-500 outline outline-[3px] outline-white scale-110" : "h-2.5 w-2.5 bg-white"
         }`;
 
     return (
@@ -89,7 +95,7 @@ const PizzaHero: React.FC = () => {
                 decoding="async"
             />
 
-            <div className="pointer-events-none absolute bottom-[-420px] left-1/2 z-10 h-[840px] w-[840px] -translate-x-1/2">
+            <div className="pointer-events-none absolute bottom-[-420px] left-1/2 z-10 h-[740px] w-[740px] lg:w-[840px] lg:h-[840px] -translate-x-1/2">
                 <div className="absolute -inset-3 rounded-full border border-black/35" />
 
                 {pizzaOptions.map(opt => (
@@ -121,7 +127,7 @@ const PizzaHero: React.FC = () => {
                         </motion.div>
 
                         <Button
-                            className="pointer-events-auto btn-primary text-xl font-semibold absolute left-1/2 top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg"
+                            className="pointer-events-auto btn-primary text-lg lg:text-xl font-semibold absolute left-1/2 top-[25%] lg:top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg"
                             onClick={onShowMenu}
                         >
                             Δες τον κατάλογό μας
@@ -132,6 +138,28 @@ const PizzaHero: React.FC = () => {
         </section>
     );
 };
+
+function useIsMobile() {
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const mql = window.matchMedia("(max-width: 767px)");
+
+        const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+
+        // initial
+        setIsMobile(mql.matches);
+
+        // ✅ modern API (no addListener)
+        mql.addEventListener("change", handler);
+
+        return () => {
+            mql.removeEventListener("change", handler);
+        };
+    }, []);
+
+    return isMobile;
+}
 
 type ArcLabelProps = {
     option: PizzaOption;
@@ -147,6 +175,9 @@ type ArcLabelProps = {
  * - Το κείμενο βγαίνει δεξιά/αριστερά με absolute, για να μην “σπρώχνει” την τελίτσα.
  */
 const ArcLabel: React.FC<ArcLabelProps> = ({ option, active, onClick }) => {
+    const isMobile = useIsMobile();
+    const angle = isMobile ? option.mobileAngle : option.desktopAngle;
+
     const WRAPPER_SIZE = 640;
     const radiusPct = 51.5;
 
@@ -154,7 +185,7 @@ const ArcLabel: React.FC<ArcLabelProps> = ({ option, active, onClick }) => {
     const centerYOffsetPct = (centerYOffsetPx / WRAPPER_SIZE) * 100;
     const centerY = 50 + centerYOffsetPct;
 
-    const rad = (option.angle * Math.PI) / 180;
+    const rad = (angle * Math.PI) / 180;
 
     // 0° = δεξιά, 90° = κορυφή, 180° = αριστερά
     const x = 50 + radiusPct * Math.cos(rad);
@@ -162,7 +193,9 @@ const ArcLabel: React.FC<ArcLabelProps> = ({ option, active, onClick }) => {
 
     const isLeftSide = x < 50;
 
-    const isCenter = option.id === "village"; // ή ό,τι id έχεις
+    const mobileCenter = ["village", "margherita", "fornata"].includes(option.id);
+    const desktopCenter = option.id === "village";
+    const isCenter = isMobile ? mobileCenter : desktopCenter;
 
     return (
         <button
@@ -185,13 +218,13 @@ const ArcLabel: React.FC<ArcLabelProps> = ({ option, active, onClick }) => {
                 {/* TEXT */}
                 {isCenter ? (
                     // Village: κείμενο ΠΑΝΩ από την τελεία
-                    <span className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap text-[35px] font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+                    <span className="absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap text-[24px] lg:text-[35px] font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
                         {option.label}
                     </span>
                 ) : (
                     // Όλα τα άλλα: κείμενο δίπλα από την τελεία
                     <span
-                        className={`absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-[35px] font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)] ${
+                        className={`absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-[24px] lg:text-[35px] font-medium drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)] ${
                             isLeftSide ? "right-10" : "left-10"
                         }`}
                     >
