@@ -69,7 +69,7 @@ html, body {
 @layer components {
     .btn-primary {
         @apply inline-flex items-center justify-center gap-2
-        py-[14px] px-5
+        py-[10px] lg:py-[14px] px-4 lg:px-5
         border border-primary-500 rounded-lg
         bg-primary-500 text-sm font-medium
         transition hover:bg-primary-600 hover:border-primary-600;

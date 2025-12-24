@@ -80,6 +80,13 @@ const PizzaHero: React.FC = () => {
 
     return (
         <section className="relative min-h-[90vh] overflow-hidden text-black">
+            <Button
+                className="block lg:hidden pointer-events-auto btn-primary text-md md:text-lg lg:text-xl absolute left-1/2 top-25 -translate-x-1/2  z-50"
+                onClick={onShowMenu}
+            >
+                Δες τον κατάλογό μας
+            </Button>
+
             {/*<div*/}
             {/*    className="absolute inset-0 bg-cover bg-center opacity-35"*/}
             {/*    style={{ backgroundImage: "url('/images/hero/fournos-hero.jpg')" }}*/}
@@ -127,7 +134,7 @@ const PizzaHero: React.FC = () => {
                         </motion.div>
 
                         <Button
-                            className="pointer-events-auto btn-primary text-lg lg:text-xl font-semibold absolute left-1/2 top-[25%] lg:top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg"
+                            className="hidden lg:block pointer-events-auto btn-primary text-md md:text-lg lg:text-xl font-semibold absolute left-1/2 top-[25%] lg:top-[31%] -translate-x-1/2 -translate-y-1/2 shadow-lg"
                             onClick={onShowMenu}
                         >
                             Δες τον κατάλογό μας
