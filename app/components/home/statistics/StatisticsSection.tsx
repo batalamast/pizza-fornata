@@ -32,13 +32,17 @@ const StatisticsSection = () => {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.25 }} // amount: πόσο να μπει στο viewport για να ξεκινήσει
             >
-                <motion.p id="why-fornata-desc" className="text-center text-success-600 uppercase text-sm tracking-wider" variants={fadeUp}>
+                <motion.p
+                    id="why-fornata-desc"
+                    className="text-center text-success-600 uppercase text-xs lg:text-sm tracking-wider"
+                    variants={fadeUp}
+                >
                     Why Pizza Fornata
                 </motion.p>
 
                 <motion.h2
                     id="why-fornata-title"
-                    className="text-center w-full md:w-[600px] mx-auto mt-3 font-bold text-[30px] leading-tight"
+                    className="text-center w-full md:w-[600px] mx-auto mt-3 font-bold text-2xl lg:text-[30px] leading-tight"
                     variants={fadeUp}
                 >
                     Εδώ θα μπορούσε να μπει κάποιος πιασάρικος τίτλος για να κρατήσει την προσοχή του επισκέπτη!
