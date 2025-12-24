@@ -66,7 +66,7 @@ function roundedPath(points: Array<{ x: number; y: number }>, round = 14) {
 
 export default function DiscountStarburst({
     className,
-    size = 250,
+    size = 220,
     percent = "-10%",
     line1 = "σε παραγγελία από το",
     line2 = "κατάστημα μας!",
@@ -106,10 +106,9 @@ export default function DiscountStarburst({
                         filter="url(#textShadow)"
                         transform={`rotate(${percentRotate} 150 140)`}
                         style={{
-                            fontFamily: "inherit",
-                            fontWeight: 500,
-                            fontSize: 80,
-                            fontStyle: "italic"
+                            fontFamily: "Yellowtail, cursive",
+                            fontWeight: 400,
+                            fontSize: 100
                         }}
                     >
                         {percent}

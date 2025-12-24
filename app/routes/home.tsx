@@ -11,6 +11,7 @@ import EventsSection from "~/components/home/events/EventsSection";
 import QuestionsSection from "~/components/home/questions/QuestionsSection";
 import { ContactMapSection } from "~/components/home/contact-us/ContactUs";
 import Footer from "~/components/home/footer/Footer";
+import AboutSection from "~/components/home/about-us/AboutSection";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -42,7 +43,7 @@ export default function Home() {
             <Navbar />
             <PizzaHero />
             <StatisticsSection />
-            {/*<AboutSection />*/}
+            <AboutSection />
             <MenuSection />
             <DeliverySection />
             <ReviewsSection />
