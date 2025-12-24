@@ -19,6 +19,8 @@
     --color-gray-100: #F3F4F6;
     --color-gray-300: #D1D5DB;
     --color-gray-500: #6B7280;
+
+    --font-weight-extrabold: 950;
 }
 
 html, body {
@@ -52,6 +54,14 @@ html, body {
 @font-face {
     font-family: "TT Norms Pro Mono";
     src: url("/fonts/TTNormsPro-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TT Norms Pro Mono";
+    src: url("/fonts/TTNormsPro-ExtraBlack.ttf") format("truetype");
     font-weight: 950;
     font-style: normal;
     font-display: swap;
