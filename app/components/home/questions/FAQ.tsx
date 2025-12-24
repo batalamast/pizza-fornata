@@ -19,7 +19,7 @@ export function FAQ({ items }: { items: TQuestion[] }) {
                         type="button"
                         key={item.id}
                         className={cn(
-                            "rounded-2xl px-6 py-5 shadow-sm w-full transition-colors",
+                            "rounded-2xl px-5 md:px-6 py-5 shadow-sm w-full transition-colors",
                             isOpen ? "bg-primary-300" : "bg-primary-100"
                         )}
                         onClick={() => setOpenId(isOpen ? -1 : item.id)}

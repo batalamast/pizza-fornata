@@ -9,7 +9,7 @@ const DeliverySection = () => {
     return (
         <section className="py-14 bg-gray-100 relative" aria-labelledby="delivery-title" aria-describedby="delivery-desc">
             <motion.div
-                className="absolute end-65 top-25"
+                className="absolute -end-7 top-37 lg:end-[13%] xl:top-25"
                 initial={{ opacity: 0, scale: 0.92, rotate: -8 }}
                 whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
@@ -27,10 +27,10 @@ const DeliverySection = () => {
                 decoding="async"
                 width={400}
                 height={400}
-                className="absolute top-2/3 left-27 transform -translate-y-2/3 pointer-events-none select-none"
+                className="absolute w-[250px] lg:w-[400px] -bottom-20 -left-20 lg:top-2/3 lg:left-27 transform md:-translate-y-2/3 pointer-events-none select-none z-50"
                 initial={{ opacity: 0, x: -140, y: -140, rotate: -8, scale: 0.95 }}
                 whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.9, ease: "easeOut", delay: 0.35 }}
             />
 
@@ -75,7 +75,7 @@ const DeliverySection = () => {
                     }}
                 >
                     <motion.h3
-                        className="text-[40px] text-center font-bold"
+                        className="w-[200px] md:w-full mx-auto text-[40px] text-center font-bold"
                         variants={{
                             hidden: { opacity: 0, y: 14 },
                             show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -85,7 +85,7 @@ const DeliverySection = () => {
                     </motion.h3>
 
                     <motion.p
-                        className="text-center text-xl font-bold text-black"
+                        className="text-center text-md md:text-xl font-bold text-black mt-3 md:mt-0"
                         variants={{
                             hidden: { opacity: 0, y: 14 },
                             show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
@@ -103,7 +103,7 @@ const DeliverySection = () => {
                     >
                         <a href={`tel:${PHONE_NUMBER}`}>
                             <Button
-                                className="bg-white rounded-md mt-10 text-primary-500 px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                className="bg-white rounded-md font-semibold mt-10 text-primary-500 px-4 py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                 aria-label="Παρήγγειλε τώρα από εμάς"
                             >
                                 Παρήγγειλε Τώρα!
@@ -123,14 +123,22 @@ const DeliverySection = () => {
                     }}
                 >
                     <motion.li
-                        className="bg-[#00C2E8] rounded-xl h-[250px] flex flex-col gap-4 items-center justify-end shadow-lg shadow-[#00C2E8]"
+                        className="bg-[#00C2E8] rounded-xl h-[150px] md:h-[250px] flex flex-col gap-0 md:gap-4 items-center justify-end shadow-lg shadow-[#00C2E8]"
                         variants={{
                             hidden: { opacity: 0, y: 16 },
                             show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
                         }}
                     >
-                        <div className="mb-4">
-                            <img src="/images/wolt.png" alt="Wolt" width="180" height="60" loading="lazy" decoding="async" />
+                        <div className="mb-1 md:mb-4">
+                            <img
+                                src="/images/wolt.png"
+                                alt="Wolt"
+                                width="180"
+                                height="60"
+                                className={"scale-65 md:scale-100"}
+                                loading="lazy"
+                                decoding="async"
+                            />
                         </div>
                         <div className="text-center">
                             <a
@@ -139,7 +147,7 @@ const DeliverySection = () => {
                                 rel="noopener noreferrer"
                             >
                                 <Button
-                                    className="bg-white rounded-md text-primary-500 px-4 py-3 mb-7 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                    className="bg-white rounded-md font-semibold text-primary-500 px-4 py-3 mb-7 text-xs md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                     aria-label="Παρήγγειλε τώρα μέσω Wolt"
                                 >
                                     Παρήγγειλε Τώρα!
@@ -149,19 +157,27 @@ const DeliverySection = () => {
                     </motion.li>
 
                     <motion.li
-                        className="bg-[#EF4848] rounded-xl h-[250px] flex flex-col items-center gap-4 justify-end shadow-lg shadow-[#EF4848]"
+                        className="bg-[#EF4848] rounded-xl h-[150px] md:h-[250px] flex flex-col items-center gap-0 md:gap-4 justify-end shadow-lg shadow-[#EF4848]"
                         variants={{
                             hidden: { opacity: 0, y: 16 },
                             show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
                         }}
                     >
-                        <div className="mb-4">
-                            <img src="/images/efood.png" alt="efood" width="180" height="60" loading="lazy" decoding="async" />
+                        <div className="mb-0 md:mb-4">
+                            <img
+                                src="/images/efood.png"
+                                alt="efood"
+                                width="180"
+                                height="60"
+                                loading="lazy"
+                                decoding="async"
+                                className={"scale-65 md:scale-100"}
+                            />
                         </div>
                         <div className="text-center">
                             <a href="https://www.e-food.gr/delivery/thessaloniki-pylaia/fornata" target="_blank" rel="noopener noreferrer">
                                 <Button
-                                    className="bg-white rounded-md text-primary-500 px-4 py-3 mb-7 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                    className="bg-white rounded-md font-semibold text-primary-500 px-4 py-3 mb-7 text-xs md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                     aria-label="Παρήγγειλε τώρα μέσω efood"
                                 >
                                     Παρήγγειλε Τώρα!
@@ -171,19 +187,27 @@ const DeliverySection = () => {
                     </motion.li>
 
                     <motion.li
-                        className="bg-[#FC7F01] rounded-xl h-[250px] flex flex-col items-center justify-end shadow-lg shadow-[#FC7F01]"
+                        className="bg-[#FC7F01] rounded-xl h-[150px] md:h-[250px] flex flex-col gap-0 md:gap-4 items-center justify-end shadow-lg shadow-[#FC7F01]"
                         variants={{
                             hidden: { opacity: 0, y: 16 },
                             show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
                         }}
                     >
-                        <div className="mb-4">
-                            <img src="/images/box.png" alt="Wolt" loading="lazy" decoding="async" width="180" height="60" />
+                        <div className="mb-0 md:mb-4">
+                            <img
+                                src="/images/box.png"
+                                alt="Wolt"
+                                loading="lazy"
+                                decoding="async"
+                                width="180"
+                                height="60"
+                                className={"scale-75 md:scale-100 w-[100px] md:w-full"}
+                            />
                         </div>
                         <div className="text-center">
                             <a href="https://box.gr/delivery/pylaia-thessalonikis/fornata" target="_blank" rel="noopener noreferrer">
                                 <Button
-                                    className="bg-white rounded-md text-primary-500 px-4 py-3 mb-7 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                    className="bg-white rounded-md font-semibold text-primary-500 px-4 py-3 mb-7 text-xs md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                     aria-label="Παρήγγειλε τώρα μέσω Box"
                                 >
                                     Παρήγγειλε Τώρα!

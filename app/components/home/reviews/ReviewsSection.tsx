@@ -26,10 +26,10 @@ const ReviewsSection = () => {
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+            <div className="absolute inset-0 bg-primary-500/25" aria-hidden="true" />
 
             {/* Content */}
-            <div className="relative z-10">
+            <div className="relative z-10 px-4 md:px-8 lg:px-16">
                 <motion.div
                     className="mx-auto max-w-3xl rounded-md bg-white/80 py-7 px-4 md:px-8 flex flex-col justify-center items-center gap-4"
                     initial={{ opacity: 0, y: 18 }}

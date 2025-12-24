@@ -12,18 +12,20 @@ const Footer = () => {
             </h2>
 
             <div className="mx-auto max-w-8xl px-4 md:px-8 lg:px-20">
-                <div className="flex justify-between flex-wrap gap-8">
-                    <div className="flex flex-col items-start gap-4">
+                <div className="flex flex-col xl:flex-row justify-between flex-wrap gap-8">
+                    <div className="flex flex-col items-center xl:items-start gap-4">
                         <Link to="/" className="inline-flex items-center" aria-label="Fornata home">
                             <img src="/images/logo.png" alt="Fornata" width="160" height="48" loading="lazy" decoding="async" />
                         </Link>
 
-                        <p className="text-sm text-gray-500 max-w-2/3">©Copyright 2026 Pizzeria Fornata. All rights reserved.</p>
+                        <p className="text-sm text-gray-500 max-w-2/3 text-center xl:text-start">
+                            ©Copyright 2026 Pizzeria Fornata. All rights reserved.
+                        </p>
 
                         <LanguageSwitcher />
                     </div>
 
-                    <nav className="flex flex-col gap-2" aria-label="Company">
+                    <nav className="flex flex-col items-center xl:items-start gap-2" aria-label="Company">
                         <div className="font-semibold">Company</div>
                         <Link
                             to="/"
@@ -51,7 +53,7 @@ const Footer = () => {
                         </Link>
                     </nav>
 
-                    <nav className="flex flex-col items-start gap-2" aria-label="Legal">
+                    <nav className="flex flex-col items-center xl:items-start gap-2" aria-label="Legal">
                         <div className="font-semibold">Legal</div>
                         <Link
                             to="/privacy"
@@ -61,7 +63,7 @@ const Footer = () => {
                         </Link>
                     </nav>
 
-                    <div className="flex flex-col justify-between items-start gap-2">
+                    <div className="flex flex-col justify-between items-center xl:items-start gap-2">
                         <div>
                             <div className="font-semibold">Follow us</div>
                             <a
