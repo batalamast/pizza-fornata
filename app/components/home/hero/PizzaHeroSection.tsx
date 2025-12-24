@@ -81,7 +81,7 @@ const PizzaHero: React.FC = () => {
     return (
         <section className="relative min-h-[90vh] overflow-hidden text-black">
             <Button
-                className="block lg:hidden pointer-events-auto btn-primary text-md md:text-lg lg:text-xl absolute left-1/2 top-25 -translate-x-1/2  z-50"
+                className="block lg:hidden pointer-events-auto btn-primary text-md md:text-lg lg:text-xl absolute left-1/2 top-25 -translate-x-1/2  z-40"
                 onClick={onShowMenu}
             >
                 Δες τον κατάλογό μας

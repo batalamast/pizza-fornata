@@ -28,7 +28,7 @@ export function MenuCard({ item, onCtaClick, className }: Props) {
 
             {/* Content */}
             <div className="relative z-10 flex h-[340px] flex-col justify-start p-10">
-                <div className="text-[50px] font-extrabold leading-none text-white drop-shadow">{item.title}</div>
+                <div className="text-[40px] lg:text-[50px] font-extrabold leading-none text-white drop-shadow">{item.title}</div>
 
                 <div className="mt-5">
                     <Button className="justify-center rounded-md bg-white px-4 py-3 text-[18px] font-semibold text-primary-500 shadow-md">

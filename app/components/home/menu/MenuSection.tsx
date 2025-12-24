@@ -43,7 +43,6 @@ export const MenuSection = () => {
         <section className="py-14" id="menus" aria-labelledby="menus-title">
             {selectedMenu ? (
                 <motion.div
-                    className="mx-auto max-w-8xl px-4 md:px-8 lg:px-20"
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -91,7 +90,7 @@ export const MenuSection = () => {
                         {selectedMenu.title}
                     </motion.h2>
 
-                    <div className="flex w-full justify-center px-4 mt-5">
+                    <div className="flex w-full justify-center mt-5">
                         <div className="w-full max-w-8xl">
                             <TabGroup
                                 selectedIndex={selectedIndex}
@@ -106,11 +105,14 @@ export const MenuSection = () => {
                                     viewport={{ once: true, amount: 0.4 }}
                                     transition={{ duration: 0.45, ease: "easeOut" }}
                                 >
-                                    <TabList className="flex flex-wrap justify-center gap-3" aria-label="Menu categories">
+                                    <TabList
+                                        className="flex overflow-x-auto justify-start sm:justify-center gap-3 px-3"
+                                        aria-label="Menu categories"
+                                    >
                                         {menusList.categories.map(category => (
                                             <Tab
                                                 key={category.id}
-                                                className="rounded-full border cursor-pointer border-primary-300 px-4 py-1.5 text-primary-500 bg-white/70 data-[selected]:bg-primary-500 data-[selected]:text-white data-[selected]:font-semibold hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                                                className="rounded-full text-nowrap border cursor-pointer border-primary-300 px-4 py-1.5 text-primary-500 bg-white/70 data-[selected]:bg-primary-500 data-[selected]:text-white data-[selected]:font-semibold hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                                             >
                                                 {category.title}
                                             </Tab>
@@ -129,7 +131,7 @@ export const MenuSection = () => {
                                     <span className="text-primary-500">take away</span>
                                 </motion.p>
 
-                                <TabPanels className="mt-6">
+                                <TabPanels className="mt-6 mx-auto max-w-8xl px-4 md:px-8 lg:px-20">
                                     {menusList.categories.map(category => {
                                         const products = productsPerCategoryId.get(category.id) || [];
                                         return (
@@ -149,11 +151,11 @@ export const MenuSection = () => {
                                                     </motion.div>
                                                 ) : (
                                                     <motion.div
-                                                        className="grid grid-cols-1 gap-6 md:grid-cols-3"
+                                                        className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3"
                                                         role="list"
                                                         initial="hidden"
                                                         whileInView="show"
-                                                        viewport={{ once: true, amount: 0.2 }}
+                                                        viewport={{ once: true, amount: 0.1 }}
                                                         variants={{
                                                             hidden: {},
                                                             show: { transition: { staggerChildren: 0.08 } }

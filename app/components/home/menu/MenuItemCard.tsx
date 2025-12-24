@@ -30,7 +30,7 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                     <img
                         src={product.imageUrl}
                         alt={product.title}
-                        className="block h-[360px] w-full object-cover"
+                        className="block h-[260px] md:h-[360px] w-full object-cover"
                         width="1200"
                         height="360"
                         loading="lazy"
@@ -39,17 +39,17 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                 </div>
 
                 {/* Content */}
-                <div className="px-8 pb-8 pt-7">
-                    <h3 id={`product-title-${product.id}`} className="text-[32px] font-semibold">
+                <div className="px-6 md:px-8 py-7">
+                    <h3 id={`product-title-${product.id}`} className="text-[24px] md:text-[32px] font-semibold">
                         {product.title}
                     </h3>
 
-                    <p className="mt-3 max-w-xl text-[18px] leading-relaxed line-clamp-2">{product.description}</p>
+                    <p className="mt-3 max-w-xl text-[15px] md:text-[18px] leading-relaxed line-clamp-2">{product.description}</p>
 
-                    <div className="mt-3 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between items-center">
+                    <div className="mt-3 flex gap-2 sm:flex-row sm:items-end justify-between items-end">
                         {/* CTA */}
                         <Button
-                            className="flex items-center justify-center rounded-md bg-primary-500 px-4 py-2 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
+                            className="flex text-sm md:text-lg items-center justify-center rounded-md bg-primary-500 px-3 md:px-4 py-2 shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2"
                             rightIcon={<GoArrowRight className="w-4 h-4 text-black ms-2" aria-hidden="true" focusable="false" />}
                             onClick={() => setIsOpen(true)}
                             aria-haspopup="dialog"
@@ -60,7 +60,7 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                         </Button>
 
                         {/* Prices */}
-                        <div className="flex justify-center items-center gap-6" aria-label="Prices">
+                        <div className="flex justify-center items-center gap-4 md:gap-6" aria-label="Prices">
                             {product.prices.map((price, idx) => {
                                 const isDineIn = menuSlug === "dine-in";
                                 const isThirty = price.size === "30cm";
@@ -68,7 +68,7 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                                     <div key={idx} className="mt-3">
                                         <div
                                             className={cn(
-                                                "rounded-xl px-2 py-1 text-[12px] inline-flex items-center justify-center",
+                                                "rounded-xl px-2 py-1 text-[10px] md:text-[12px] inline-flex items-center justify-center",
                                                 isThirty ? "bg-black text-white" : "bg-primary-500 text-white"
                                             )}
                                         >
@@ -76,7 +76,7 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                                         </div>
                                         <div
                                             className={cn(
-                                                "mt-2 text-[32px] font-bold leading-none",
+                                                "mt-2 text-[28px] md:text-[32px] font-bold leading-none",
                                                 isThirty ? "text-black" : "text-primary-500"
                                             )}
                                         >
@@ -153,16 +153,16 @@ export function MenuItemCard({ product, menuSlug }: Props) {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="px-6 pb-7 pt-7 md:px-10 md:pb-10">
-                                        <h3 id={`product-dialog-title-${product.id}`} className="text-[40px] font-semibold">
+                                    <div className="px-6 py-7 md:px-10 md:pb-10">
+                                        <h3 id={`product-dialog-title-${product.id}`} className="text-[30px] md:text-[40px] font-semibold">
                                             {product.title}
                                         </h3>
 
-                                        <p id={`product-dialog-desc-${product.id}`} className="mt-2 text-[20px]">
+                                        <p id={`product-dialog-desc-${product.id}`} className="mt-2 text-[18px] md:text-[20px]">
                                             {product.description}
                                         </p>
 
-                                        <div className="mt-5 flex items-end justify-between gap-6">
+                                        <div className="mt-2 flex items-end justify-between gap-6">
                                             {/* Back button */}
                                             <button
                                                 type="button"

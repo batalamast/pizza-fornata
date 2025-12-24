@@ -142,7 +142,7 @@ export function Navbar() {
                 {/* Panel */}
                 <div
                     className={cn(
-                        "absolute inset-0 bg-primary-300",
+                        "absolute inset-0 bg-primary-300 z-50",
                         "transition-transform duration-500 ease-out",
                         open ? "translate-y-0" : "-translate-y-5 opacity-0"
                     )}
